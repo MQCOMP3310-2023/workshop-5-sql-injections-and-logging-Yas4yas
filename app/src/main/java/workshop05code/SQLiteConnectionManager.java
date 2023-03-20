@@ -126,6 +126,9 @@ public class SQLiteConnectionManager {
      * @param word the word to store
      */
     public void addValidWord(int id, String word) {
+        if (word.matches(".*[^a-zA-Z].*")){
+            return;
+        }
 
         String sql = "INSERT INTO validWords(id,word) VALUES('" + id + "','" + word + "')";
 
